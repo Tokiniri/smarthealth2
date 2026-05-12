@@ -23,7 +23,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --include=dev
 
       - name: Run Linter (ESLint)
         run: npx eslint src/ --ext .js
