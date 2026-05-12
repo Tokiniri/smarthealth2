@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: Run Linter (ESLint)
-        run: npm run lint
-
-      - name: Run Linter (ESLint)
         run: npx eslint src/ --ext .js
+
+      - name: Run Tests (Jest + Coverage)
+        run: npx jest --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
