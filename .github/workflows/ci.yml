@@ -25,11 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/*
+
       - name: Run Linter (ESLint)
-        run: ./node_modules/.bin/eslint src/ --ext .js
+        run: node node_modules/eslint/bin/eslint.js src/ --ext .js
 
       - name: Run Tests (Jest + Coverage)
-        run: ./node_modules/.bin/jest --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
+        run: node node_modules/jest/bin/jest.js --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
