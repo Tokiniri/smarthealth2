@@ -35,8 +35,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           args: >
-            -Dsonar.projectKey=VOTRE_PROJECT_KEY
-            -Dsonar.organization=VOTRE_ORGANISATION
+            -Dsonar.projectKey=tokiniri_smarthealth2
+            -Dsonar.organization=tokiniri
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.sources=src
             -Dsonar.tests=tests
