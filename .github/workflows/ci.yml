@@ -23,10 +23,13 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install --include=dev
+        run: npm install
+
+      - name: Install ESLint globally
+        run: npm install -g eslint
 
       - name: Run Linter (ESLint)
-        run: npx eslint src/ --ext .js
+        run: eslint src/ --ext .js
 
       - name: Run Tests (Jest + Coverage)
         run: npx jest --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
