@@ -25,14 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install ESLint globally
-        run: npm install -g eslint
-
       - name: Run Linter (ESLint)
-        run: eslint src/ --ext .js
+        run: ./node_modules/.bin/eslint src/ --ext .js
 
       - name: Run Tests (Jest + Coverage)
-        run: npx jest --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
+        run: ./node_modules/.bin/jest --coverage --coverageReporters=lcov --coverageReporters=text --forceExit
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
